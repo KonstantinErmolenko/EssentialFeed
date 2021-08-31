@@ -128,12 +128,6 @@ class EssentialFeedTests: XCTestCase {
         return .failure(error)
     }
 
-    private func trackForMemoryLeaks(_ sut: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        addTeardownBlock { [weak sut] in
-            XCTAssertNil(sut, "Instance should have been deallocated. Pontential memory leak.", file: file, line: line)
-        }
-    }
-
     private func makeItem(id: UUID,
                           description: String? = nil,
                           location: String? = nil,
